@@ -16,7 +16,7 @@ Available on:
 Hit CTRL-C to stop the server
 7.	Enter the url in browser: http://localhost:8080/
 # Features
-•	Loads a list of videos from a sample movie api https://demo2697834.mockable.io/movies 
-•	User can browse through the list and select a video to play.
-•	User can play video by clicking on the movie cover image displayed in carousel.
-•	User will be able to view all the videos watched previously by clicking on History in header.
+1. Loads a list of videos from a sample movie api https://demo2697834.mockable.io/movies 
+2. User can browse through the list and select a video to play.
+3. User can play video by clicking on the movie cover image displayed in carousel.
+4. User will be able to view all the videos watched previously by clicking on History in header.
