@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>VOD Application</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="myCSS.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+  <script src='appCtrl.js'></script>
+  <script src='modalCtrl.js'></script>
+  <script src='secureUrlFilter.js'></script>
+  <script src='carousel.js'></script>
+  <script src='appRouter.js'></script>
+  <script src='routeCtrl.js'></script>
+</head>
+<body>
+
+<div class="container" ng-app="myVODApp" ng-controller="myVODCtrl">
+<!--navigation bar-->
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#/history">History</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<!--VOD carousel-->
+  <div class="row">
+     <div class="col-md-12">
+        <div class="carousel slide" id="carouselVOD" data-interval="false">
+           <div class="carousel-inner" role="listbox">
+              <div class="item"   ng-class='{active: $first}' ng-repeat="movie in movieList">
+                 <div class="item-item col-md-3 col-sm-4">
+                   <!--<button type="button" class="btn btn-default" ng-click="open()">{{movie.images[0].url}}</button>-->
+                    <img ng-src={{movie.images[0].url}} ng-click="open(movie)" class="img-responsive">
+                    <div class="carousel-caption">
+                      <h3>{{movie.title}}</h3>
+                    </div>
+                 </div>
+              </div>
+            </div>
+        </div>
+           <a class="left carousel-control" href="#carouselVOD" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+           <a class="right carousel-control" href="#carouselVOD" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+        </div>
+     </div>
+     <div class="row">
+       <!--<div ng-include="'historyView.html'">history</div>-->
+       <div ng-view></div>
+     </div>
+     <script type="text/ng-template" id="myModalContent.html">
+         <div class="modal-header">
+       				<button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-label="Close">
+       					<span aria-hidden="true">&times;</span>
+       				</button>
+       	</div>
+         <div class="modal-body">
+       				<div class="modal-video">
+         				<div class="embed-responsive embed-responsive-16by9">
+                  <video width="320" height="240" controls>
+                    <source ng-src="{{videoUrl | secureUrl}}" type="video/mp4">
+                  </video>
+                 </div>
+               </div>
+       	</div>
+   </script>
+
+  </div>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

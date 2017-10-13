@@ -1,0 +1,19 @@
+
+  <h1>Recently Watched videos</h1>
+   <div class="col-md-12">
+      <div class="carousel carousel-VOD slide" id="videoHistory" data-interval="false">
+         <div class="carousel-inner">
+            <div class="item"   ng-class='{active: $first}' ng-repeat="movie in history">
+               <div class="col-xs-12 col-sm-4 col-md-2">
+
+                  <img ng-src={{movie.images[0].url}} ng-click="open(movie)" class="img-responsive">
+                  <div class="carousel-caption">
+                    <h3>{{movie.title}}</h3>
+                  </div>
+               </div>
+            </div>
+          </div>
+      </div>
+         <a class="left carousel-control" href="#videoHistory" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+         <a class="right carousel-control" href="#videoHistory" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+      </div>
