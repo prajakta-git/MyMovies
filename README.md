@@ -3,7 +3,7 @@ This is an on demand video application that displays a scrolling list of videos 
 # Application Set-up on local machine
 1.	Install nodejs (http://nodejs.org/download/)
 2.	Install simple node http server using command (npm install -g http-server)
-3.	Copy the project in to pc and extract the files.
+3.	Clone or download the project.
 4.	Change to the directory containing your static web files (e.g. html, javascript, css etc) in the command line window, e.g: 
 cd \projects\MyMovies
 5.	Start the server with this command:  http-server
